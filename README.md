@@ -99,4 +99,4 @@ If you have any Feedback, Please reach out to us at jahirpp1999@gmail.com
 - [Paras Kamaliya](https://github.com/paraskamaliya)
 - [Jahir Pendhari](https://github.com/JahirPendhari09)
 - [Neha Singh](https://github.com/Nehaa1210)
-- [Badri Vishal Singh_(https://github.com/badrisinghoo7)]
+- [Badri Vishal Singh](https://github.com/badrisinghoo7)
