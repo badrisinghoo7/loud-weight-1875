@@ -3,15 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 
 import styled from "styled-components";
 import { login } from "../redux/Authentication/action";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { LOGIN_SUCCESS } from "../redux/actionTypes";
 
 
 function Login() {
-
- const emailRef=useRef();
- const passwordRef=useRef();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const emailRef = useRef();
+  const passwordRef = useRef();
   const dispatch = useDispatch();
   const isAuth = useSelector((store) => store.authReducer.isAuth);
 
@@ -20,41 +21,41 @@ function Login() {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    dispatch(login(email,password)).then(res=>{
-      if(res.length>0)
-      {
-        dispatch({type:LOGIN_SUCCESS, payload:res[0]});
-      }else{
+    dispatch(login(email, password)).then(res => {
+      if (res.length > 0) {
+        dispatch({ type: LOGIN_SUCCESS, payload: res[0] });
+        localStorage.setItem("userDetails", JSON.stringify(res[0]))
+        navigate(location.state || "/", { replace: true })
+      } else {
         alert("Incorrect Credentials");
       }
     });
   };
 
-  if(isAuth)
-  {
-   return  <Navigate to="/"/>
-  }
+//  if(isAuth){
+//   return <Navigate to="/"/>
+//  }
   return (
     <DIV auth={isAuth.toString()}>
       <div className="box">
-      <h1>Login</h1>
+        <h1>Login</h1>
 
-      <form onSubmit={handleSubmit} className="formData">
-        <input
-          type="email"
-          placeholder="Enter email"
-          ref={emailRef}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Enter password"
-          ref={passwordRef}
-          required
-        />
-        <button>Login</button>
-        <p>Don't have account <Link to="/signup"><span style={{color:"red"}}>Register</span></Link></p>
-      </form>
+        <form onSubmit={handleSubmit} className="formData">
+          <input
+            type="email"
+            placeholder="Enter email"
+            ref={emailRef}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Enter password"
+            ref={passwordRef}
+            required
+          />
+          <button>Login</button>
+          <p>Don't have account <Link to="/signup"><span style={{ color: "red" }}>Register</span></Link></p>
+        </form>
       </div>
     </DIV>
   );

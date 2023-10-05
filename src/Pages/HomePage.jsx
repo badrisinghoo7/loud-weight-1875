@@ -10,7 +10,7 @@ import { useSelector } from "react-redux"
 const HomePage = () => {
 
     const user=useSelector((store)=>store.authReducer.user);
-    console.log(user,"User")
+    
     return <div>
         <TopHome />
         <HomeProducts/>

@@ -7,7 +7,7 @@ const InspirationContent = () => {
              <img src="https://m.media-amazon.com/images/I/61+BDdeWUDL._AC_UF1000,1000_QL80_.jpg" alt="wall_Painting"/>
         </div>
         <div className='box-2'>
-            <text>Our Passion is Your <span style={{ color: "green" }}>Inspiration</span></text>
+            <p className='heading'>Our Passion is Your <span style={{ color: "green" }}>Inspiration</span></p>
             <br />
             <br />
             <p>With each Livary Wall we send you our passion for beautiful thing for your home.The content of each wall is agreed with thr Creators.</p>
@@ -22,7 +22,7 @@ const DIV = styled.div`
     width: 90%;
     display: flex;
     margin-left: 5%;
-
+    margin-bottom:50px;
     .box-1{
         width: 100%;
         background-color: #f0ede6;
@@ -37,7 +37,7 @@ const DIV = styled.div`
         width:100%;
         height: 350px;
     }
-    text{
+    .heading{
         font-size: 45px;
     }
  
